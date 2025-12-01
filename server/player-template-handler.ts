@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import type { FlowchartNode } from '@shared/schema';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PLAYER_GD_PATH = path.join(__dirname, '../player.gd');
+const __dirname = process.cwd();
+const PLAYER_GD_PATH = path.join(__dirname, 'player.gd');
 
 interface PlayerTemplate {
   id: string;
