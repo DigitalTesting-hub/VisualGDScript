@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: flowchart-gdscript-generator
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build && npx esbuild server/index.ts --bundle --platform=node --target=node18 --format=cjs --outfile=dist/index.cjs --external:express --external:@google/genai --external:@neondatabase/serverless --external:drizzle-orm --external:ws --external:multer --external:passport --external:connect-pg-simple --external:express-session
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PORT
+        value: 5000
