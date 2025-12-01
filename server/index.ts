@@ -503,11 +503,11 @@ app.post("/api/flowchart/templates", async (req, res) => {
 });
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "../dist/public")));
+app.use(express.static(path.join(__dirname, "dist/public")));
 
 // SPA fallback
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/public/index.html"));
+  res.sendFile(path.join(__dirname, "dist/public/index.html"));
 });
 
 const server = app.listen(PORT, () => {
