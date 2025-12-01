@@ -5,7 +5,6 @@
 
 import express, { type Express } from "express";
 import path from "path";
-import { fileURLToPath } from "url";
 import multer from "multer";
 import fs from "fs";
 import { generateGDScriptFromFlowchart, validateFlowchart } from "./flowchart-generator";
@@ -24,7 +23,7 @@ import { generateBlockCode } from "./block-code-generator";
 import { buildBlockSequencePrompt, summarizeBlockSequence } from "./block-prompt-builder";
 import type { BlockSequence } from "@shared/block-schema";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = process.cwd();
 const app: Express = express();
 const PORT = 5000;
 
